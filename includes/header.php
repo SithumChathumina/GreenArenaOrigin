@@ -1,6 +1,5 @@
 <?php
-// Top of every page: <head>, logo and navigation menu
-// default values (each page sets its own before including this file)
+
 $pageTitle = $pageTitle ?? 'NSBM SportsHub';
 $activePage = $activePage ?? '';
 $bodyClass = $bodyClass ?? '';
