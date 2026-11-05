@@ -1,15 +1,11 @@
 <?php
-// This file is included at the top of every page.
-// It starts the session and loads the database and the shared functions.
+
 
 session_start();
 
-// BASE_PATH is the folder name of the site in the web address, for example /sportshub3.3
-// It is worked out from the address of the page that is running, so the folder can have
-// any name and the links and redirects always stay inside it.
-// On hosting where the site is in the main folder, BASE_PATH is empty.
+
 $folder = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
-// pages inside the admin and student folders are one level deeper, so remove that part
+
 if (substr($folder, -6) === '/admin') {
     $folder = substr($folder, 0, -6);
 } elseif (substr($folder, -8) === '/student') {
