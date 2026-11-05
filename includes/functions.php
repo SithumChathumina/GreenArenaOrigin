@@ -1,36 +1,28 @@
 <?php
-// Shared helper functions used by many pages.
-
-// Make text safe to print inside HTML.
 function e($value)
 {
     return htmlspecialchars($value ?? '', ENT_QUOTES);
 }
 
-// Build a link that works from any folder, e.g. url('login.php')
+
 function url($path = '')
 {
     return BASE_PATH . '/' . ltrim($path, '/');
 }
 
-// Link to a file inside the assets folder
+
 function asset($path)
 {
     return url('assets/' . ltrim($path, '/'));
 }
 
-// Send the user to another page and stop running this one
 function redirect($path)
 {
     header('Location: ' . url($path));
     exit;
 }
 
-// ---------- Database helpers ----------
-// The values go in separately from the SQL (prepared statement),
-// so what the user types can never change the SQL command.
 
-// Run any SQL query. $params is the list of values for the ? marks.
 function run_query($sql, $params = [])
 {
     global $connection;
@@ -41,7 +33,7 @@ function run_query($sql, $params = [])
     }
 
     if (count($params) > 0) {
-        // 's' means every value is sent as a string (MySQL converts numbers for us)
+       
         $types = str_repeat('s', count($params));
         mysqli_stmt_bind_param($statement, $types, ...$params);
     }
@@ -52,7 +44,7 @@ function run_query($sql, $params = [])
     return $statement;
 }
 
-// Get many rows (for SELECT). Returns an array of rows.
+
 function fetch_all($sql, $params = [])
 {
     $statement = run_query($sql, $params);
@@ -60,7 +52,7 @@ function fetch_all($sql, $params = [])
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 
-// Get one row (for SELECT). Returns false if nothing was found.
+
 function fetch_one($sql, $params = [])
 {
     $rows = fetch_all($sql, $params);
@@ -70,7 +62,7 @@ function fetch_one($sql, $params = [])
     return false;
 }
 
-// ---------- Messages shown at the top of the next page ----------
+
 function flash($type, $message)
 {
     $_SESSION['flash'][] = ['type' => $type, 'message' => $message];
@@ -83,7 +75,7 @@ function get_flashes()
     return $messages;
 }
 
-// ---------- Formatting ----------
+
 function format_date($date, $format = 'd M Y')
 {
     if ($date) {
@@ -100,7 +92,7 @@ function format_time($time)
     return 'Not set';
 }
 
-// Coloured label for a status such as pending / approved
+
 function status_badge($status)
 {
     $classes = [
@@ -122,7 +114,7 @@ function status_badge($status)
     return '<span class="badge text-bg-' . $class . '">' . e(ucfirst($status)) . '</span>';
 }
 
-// Adds "active" to the menu link of the page we are on
+
 function active_class($page, $activePage)
 {
     if ($page === $activePage) {
