@@ -1,6 +1,3 @@
--- NSBM SportsHub database
--- Import this file using phpMyAdmin or: mysql -u root -p < database/sportshub.sql
-
 CREATE DATABASE IF NOT EXISTS sportshub3_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE sportshub3_db;
 
@@ -142,7 +139,7 @@ CREATE TABLE bookings (
     FOREIGN KEY (facility_id) REFERENCES facilities(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- Demo passwords: Admin@123 and Student@123
+-- Demo passwords: Admin@123 and Student@123 --
 INSERT INTO users (student_id, full_name, email, password_hash, role) VALUES
 ('ADMIN001', 'SportsHub Administrator', 'admin@nsbm.lk', '$2y$10$cLFQJDpWwlz6EWw6C9NhEePPDYNVtiNYdyMIkgFXNi6IUBboHbCce', 'admin'),
 ('26.1IFSL001', 'Demo Student', 'student@nsbm.ac.lk', '$2y$10$tZIpnUWgukVN1XOoT62F2eNJ/jyaQkNaGaDgyDCj9ZtXOU8pBSzrm', 'student'),
