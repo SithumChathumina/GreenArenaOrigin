@@ -1,4 +1,4 @@
-<?php /* Menu shown on the student pages */ ?>
+<?php  ?>
 <?php $studentSection = $studentSection ?? ''; ?>
 <div class="dashboard-nav-wrap">
     <div class="container">
