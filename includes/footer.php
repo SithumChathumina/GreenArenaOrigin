@@ -1,4 +1,4 @@
-<?php /* Bottom of every page: footer and JavaScript files */ ?>
+<?php ?>
 </main>
 <footer class="site-footer">
 <div class="container">
