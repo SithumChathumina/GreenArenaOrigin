@@ -1,7 +1,5 @@
 <?php
-// Login checks. The user id is saved in the session when the user logs in.
 
-// Get the logged-in user's row from the database (or null if nobody is logged in)
 function current_user()
 {
     if (empty($_SESSION['user_id'])) {
@@ -10,7 +8,7 @@ function current_user()
 
     $user = fetch_one('SELECT id, student_id, full_name, email, role FROM users WHERE id = ?', [$_SESSION['user_id']]);
     if (!$user) {
-        // the account no longer exists
+        
         $_SESSION = [];
         return null;
     }
@@ -37,8 +35,7 @@ function require_login()
     }
 }
 
-// Pages for students only (admins are sent to the admin panel)
-function require_student()
+function require_student()// Pages for students 
 {
     require_login();
     if (is_admin()) {
@@ -46,8 +43,7 @@ function require_student()
     }
 }
 
-// Pages for admins only (students are sent back to their dashboard)
-function require_admin()
+function require_admin()     // Pages for admins 
 {
     require_login();
     if (!is_admin()) {
