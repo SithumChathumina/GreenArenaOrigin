@@ -1,4 +1,6 @@
--- SportsHub database for hosting (InfinityFree).
+--This is for live hosting on InfinityFree
+-- i will keep this until the other parts are completed
+--notes
 -- Create the database in the control panel first, open it in phpMyAdmin, then use Import.
 
 
