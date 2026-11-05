@@ -1,4 +1,5 @@
 <?php
+//this is just the localhost databse file, just to run our local PCs
 // Database connection settings.
 // XAMPP uses user "root" with an empty password by default.
 // Change these four values when you upload the site to a hosting account.
