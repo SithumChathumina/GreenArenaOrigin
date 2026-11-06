@@ -1,9 +1,9 @@
 <?php
-// Student: training schedule of the clubs I have joined
-require_once __DIR__ . '/../includes/init.php';
-// only logged-in students are allowed on this page
-require_student();
-// title and menu highlight used by header.php
+ 
+ require_once __DIR__ . '/../includes/init.php';
+ 
+ require_student();
+
 $pageTitle = 'My training schedule';
 $activePage = 'dashboard';
 $studentSection = 'calendar';
@@ -19,7 +19,7 @@ $matches = fetch_all("SELECT m.*, mr.preferred_team
     JOIN matches m ON m.id = mr.match_id
     WHERE mr.user_id = ? AND mr.status = 'registered' AND m.status = 'scheduled' AND m.match_datetime >= NOW()
     ORDER BY m.match_datetime", [$userId]);
-// show the top of the page
+
 include __DIR__ . '/../includes/header.php';
 include __DIR__ . '/../includes/student_nav.php';
 ?>

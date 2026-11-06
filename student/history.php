@@ -1,9 +1,9 @@
 <?php
-// Student: my participation history (clubs, events and bookings)
+
 require_once __DIR__ . '/../includes/init.php';
-// only logged-in students are allowed on this page
+
 require_student();
-// title and menu highlight used by header.php
+
 $pageTitle = 'My participation history';
 $activePage = 'dashboard';
 $studentSection = 'history';

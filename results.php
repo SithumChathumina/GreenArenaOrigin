@@ -1,8 +1,6 @@
 <?php
-// Match results and the standings table
-require_once __DIR__ . '/includes/init.php';
 
-// title and menu highlight used by header.php
+require_once __DIR__ . '/includes/init.php';
 
 $pageTitle = 'Results and standings';
 $activePage = 'results';

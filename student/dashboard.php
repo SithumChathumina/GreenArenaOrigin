@@ -1,10 +1,10 @@
 <?php
-// Student dashboard: my clubs, upcoming training and registrations
+
 require_once __DIR__ . '/../includes/init.php';
-// only logged-in students are allowed on this page
+
 require_student();
 $user = current_user();
-// title and menu highlight used by header.php
+
 $pageTitle = 'Student dashboard';
 $activePage = 'dashboard';
 $studentSection = 'dashboard';
@@ -24,7 +24,7 @@ $upcoming = fetch_all("SELECT s.*, c.name AS club_name
     WHERE m.user_id = ? AND m.status = 'approved' AND s.session_date >= CURDATE()
     ORDER BY s.session_date, s.start_time
     LIMIT 4", [$user['id']]);
-// show the top of the page
+ 
 include __DIR__ . '/../includes/header.php';
 include __DIR__ . '/../includes/student_nav.php';
 ?>
