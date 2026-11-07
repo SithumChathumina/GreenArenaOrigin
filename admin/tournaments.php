@@ -1,5 +1,5 @@
 <?php
-// Admin: create, edit and delete tournaments
+
 require_once __DIR__ . '/../includes/init.php';
 // only admins are allowed on this page
 require_admin();
@@ -21,12 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
     $id = (int) ($_POST['id'] ?? 0);
     // delete a record
+
+
     if ($action === 'delete') {
         run_query('DELETE FROM tournaments WHERE id=?', [$id]);
         flash('success', 'Tournament deleted.');
         redirect('admin/tournaments.php');
     }
-    // add a new record or update an existing one
+
+
+    
     if ($action === 'save') {
         foreach (array_keys($values) as $key) {
             $values[$key] = trim($_POST[$key] ?? '');

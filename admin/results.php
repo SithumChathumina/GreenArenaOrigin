@@ -4,7 +4,6 @@ require_once __DIR__ . '/../includes/init.php';
 // only admins are allowed on this page
 require_admin();
 
-// this part runs when a form on the page was submitted
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = (int) ($_POST['id'] ?? 0);
@@ -16,6 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($status === 'completed' && (!is_numeric($homeScore) || !is_numeric($awayScore) || (int) $homeScore < 0 || (int) $awayScore < 0)) {
         flash('danger', 'Enter valid non-negative scores before completing a match.');
     } else {
+
+
         $home = $status === 'completed' ? (int) $homeScore : null;
         $away = $status === 'completed' ? (int) $awayScore : null;
         run_query('UPDATE matches SET status=?, home_score=?, away_score=? WHERE id=?', [$status, $home, $away, $id]);
@@ -28,7 +29,9 @@ $pageTitle = 'Record match results';
 $activePage = 'dashboard';
 $adminSection = 'results';
 $matches = fetch_all('SELECT * FROM matches ORDER BY FIELD(status, "scheduled", "completed", "cancelled"), match_datetime DESC');
-// show the top of the page
+
+
+
 include __DIR__ . '/../includes/header.php';
 include __DIR__ . '/../includes/admin_nav.php';
 ?>

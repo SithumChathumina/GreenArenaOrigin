@@ -1,7 +1,9 @@
 <?php
 // Admin: participation and performance reports (with CSV download)
 require_once __DIR__ . '/../includes/init.php';
-// only admins are allowed on this page
+
+
+
 require_admin();
 // Report 1: one row per club (members, pending requests, training sessions)
 $clubReport = fetch_all("SELECT c.name, c.sport,
@@ -41,6 +43,8 @@ if (isset($_GET['export'])) {
     }
     fclose($output);
     exit;
+
+
 }
 $completed = fetch_all("SELECT * FROM matches WHERE status='completed' ORDER BY match_datetime");
 $performance = [];
@@ -65,7 +69,8 @@ foreach ($completed as $match) {
         else $performance[$team]['lost']++;
     }
 }
-// Sort the teams with a bubble sort:
+
+
 // most wins first, then fewest matches played, then team name
 $performance = array_values($performance);
 $count = count($performance);

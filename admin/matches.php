@@ -9,7 +9,8 @@ $values = ['id' => '', 'tournament_id' => '', 'sport' => '', 'home_team' => '', 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
     $id = (int) ($_POST['id'] ?? 0);
-    // delete a record
+
+
     if ($action === 'delete') {
         run_query('DELETE FROM matches WHERE id=?', [$id]);
         flash('success', 'Match deleted.');
@@ -47,6 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!$existing || $existing['home_score'] === null || $existing['away_score'] === null) {
                 $errors[] = 'Add scores on the Results page before marking a match completed.';
             }
+
+            
         }
         if (!$errors) {
             $dateTime = str_replace('T', ' ', $values['match_datetime']);
