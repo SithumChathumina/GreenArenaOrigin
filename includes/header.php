@@ -18,7 +18,17 @@ $flashes = get_flashes();
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script>
+            var savedTheme = 'light';
+            try {
+                savedTheme = localStorage.getItem('theme') || "light";
+            } catch (error) {
+                savedTheme = 'light';
+            }
+            document.documentElement.setAttribute('data-bs-theme', savedTheme);
+        </script>
         <link href="<?= e(asset('css/style.css')) ?>" rel="stylesheet">
+        <link href="<?= e(asset('css/theme.css')) ?>" rel="stylesheet">
     </head>
     <body class="<?= e($bodyClass) ?>">
         <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -51,6 +61,13 @@ $flashes = get_flashes();
                                 <li class="nav-item"><a class="nav-link <?= active_class('login', $activePage) ?>" href="<?= e(url('login.php')) ?>">Log in</a></li>
                                 <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-sm btn-sport" href="<?= e(url('register.php')) ?>">Join SportsHub</a></li>
                             <?php endif; ?>
+                            <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                                <button class="theme-switch" id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark mode">
+                                    <img class="switch-icon icon-sun" src="<?= e(asset('img/sun.png')) ?>" alt="">
+                                    <img class="switch-icon icon-moon" src="<?= e(asset('img/moon.png')) ?>" alt="">
+                                    <span class="switch-knob"></span>
+                                </button>
+                            </li>
                         </ul>
                     </div>
                 </div>
