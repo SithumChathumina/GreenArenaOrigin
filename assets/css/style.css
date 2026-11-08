@@ -203,6 +203,12 @@ textarea.form-control { min-height: 110px; }
 .site-footer .col-6 > a:hover { color: var(--highlight); }
 .footer-bottom { display: flex; justify-content: space-between; gap: 16px; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.12); color: #98a19a; font-size: 0.75rem; }
 
+.brand-mark {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-right: 10px;
+}
 
 /* this part allows to change the website accordingly with multiple devices */
 @media (max-width: 991px) {

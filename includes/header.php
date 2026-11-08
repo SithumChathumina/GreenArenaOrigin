@@ -13,7 +13,7 @@ $flashes = get_flashes();
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="NSBM SportsHub — university sports clubs, training, fixtures and facility bookings in one place.">
         <title><?= e($pageTitle) ?> | NSBM SportsHub</title>
-        <link rel="icon" href="<?= e(asset('img/favicon.svg')) ?>" type="image/svg+xml">
+        <link rel="icon" type="image/png" href="<?= e(asset('img/image1.png')) ?>">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -26,11 +26,7 @@ $flashes = get_flashes();
             <nav class="navbar navbar-expand-lg navbar-dark site-navbar" aria-label="Main navigation">
                 <div class="container">
                     <a class="navbar-brand brand" href="<?= e(url('index.php')) ?>" aria-label="NSBM SportsHub home">
-                    <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
-                        <path d="M24 3 42 10v13c0 11-7.4 18.5-18 22C13.4 41.5 6 34 6 23V10L24 3Z" fill="#009147"/>
-                        <path d="m15 17 18 14M33 17 15 31" stroke="#f6dd38" stroke-width="4" stroke-linecap="round"/>
-                        <circle cx="24" cy="24" r="5" fill="#f6dd38"/>
-                    </svg>
+                    <img src="<?= e(asset('img/image.png')) ?>" alt="NSBM SportsHub Logo" class="brand-mark">
                     <span><small>NSBM</small> SPORTSHUB</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
