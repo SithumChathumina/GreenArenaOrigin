@@ -59,6 +59,9 @@ $flashes = get_flashes();
                                 <li class="nav-item"><a class="nav-link <?= active_class('login', $activePage) ?>" href="<?= e(url('login.php')) ?>">Log in</a></li>
                                 <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-sm btn-sport" href="<?= e(url('register.php')) ?>">Join SportsHub</a></li>
                             <?php endif; ?>
+                            <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                                <button class="btn btn-sm theme-toggle" id="theme-toggle" type="button" aria-label="Switch between light and dark mode">Dark mode</button>
+                            </li>
                         </ul>
                     </div>
                 </div>
