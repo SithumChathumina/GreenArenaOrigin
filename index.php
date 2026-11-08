@@ -32,9 +32,42 @@ include __DIR__ . '/includes/header.php';
     </div>
     <div class="ticker" aria-hidden="true">
         <div class="ticker-track">
-            <span>CRICKET · FOOTBALL · BASKETBALL · BADMINTON · RUGBY · ATHLETICS ·&nbsp;</span>
-            <span>CRICKET · FOOTBALL · BASKETBALL · BADMINTON · RUGBY · ATHLETICS ·&nbsp;</span>
-        </div>
+            <span>CRICKET &nbsp;</span>
+            <span>|&nbsp;</span>
+            <span> FOOTBALL &nbsp;</span>
+            <span>| &nbsp;</span>
+            <span> BASKETBALL &nbsp;</span>
+            <span>| &nbsp;</span>
+            <span> BADMINTON &nbsp;</span>
+            <span>| &nbsp;</span>
+            <span> RUGBY &nbsp;</span>
+            <span>| &nbsp;</span>
+            <span> ATHLETICS &nbsp;</span>
+            <span>| &nbsp;</span>
+            <span>CRICKET &nbsp;</span>
+            <span>|&nbsp;</span>
+            <span> FOOTBALL &nbsp;</span>
+            <span>| &nbsp;</span>
+            <span> BASKETBALL &nbsp;</span>
+            <span>| &nbsp;</span>
+            <span> BADMINTON &nbsp;</span>
+            <span>| &nbsp;</span>
+            <span> RUGBY &nbsp;</span>
+            <span>| &nbsp;</span>
+            <span> ATHLETICS &nbsp;</span>
+            <span>| &nbsp;</span>
+            <span>CRICKET &nbsp;</span>
+            <span>|&nbsp;</span>
+            <span> FOOTBALL &nbsp;</span>
+            <span>| &nbsp;</span>
+            <span> BASKETBALL &nbsp;</span>
+            <span>| &nbsp;</span>
+            <span> BADMINTON &nbsp;</span>
+            <span>| &nbsp;</span>
+            <span> RUGBY &nbsp;</span>
+            <span>| &nbsp;</span>
+            <span> ATHLETICS &nbsp;</span>
+            <span>| &nbsp;</span>
     </div>
 </section>
 
