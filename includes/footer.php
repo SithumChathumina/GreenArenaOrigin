@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row g-4 align-items-start">
         <div class="col-lg-5">
-                <a class="footer-brand" href="<?= e(url('index.php')) ?>">NSBM SPORTSHUB</a>
+                <a class="footer-brand" href="<?= e(url('index.php')) ?>">NSBM GreenArena</a>
                 <p class="footer-copy">One place for university clubs, training, fixtures and the next game.</p>
         </div>
         <div class="col-6 col-lg-3">
@@ -17,12 +17,12 @@
             <h2 class="footer-heading">Students</h2>
                 <a href="<?= e(url('student/registrations.php')) ?>">Tournament registration</a>
                 <a href="<?= e(url('student/bookings.php')) ?>">Facility booking</a>
-                <a href="mailto:sportshub@nsbm.lk">sportshub@nsbm.lk</a>
+                <a href="mailto:greenarena@nsbm.lk">greenarena@nsbm.lk</a>
         </div>
     </div>
     <div class="footer-bottom">
             <span>Faculty of Computing · Web and Mobile Application Development</span>
-            <span>&copy; <?= date('Y') ?> NSBM SportsHub</span>
+            <span>&copy; <?= date('Y') ?> NSBM GreenArena</span>
     </div>
 </div>
 </footer>

@@ -25,9 +25,11 @@ $flashes = get_flashes();
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark site-navbar" aria-label="Main navigation">
                 <div class="container">
-                    <a class="navbar-brand brand" href="<?= e(url('index.php')) ?>" aria-label="NSBM SportsHub home">
-                    <img src="<?= e(asset('img/image.png')) ?>" alt="NSBM SportsHub Logo" class="brand-mark">
-                    <span><small>NSBM</small> SPORTSHUB</span>
+                    <a class="navbar-brand brand" href="<?= e(url('index.php')) ?>" aria-label="NSBM GreenArena home">
+                    <img src="<?= e(asset('img/image.png')) ?>" alt="NSBM GreenArena Logo" class="brand-mark">
+                    <div class="green-arena-title">
+                        <span><small>NSBM</small> GREEN<i>ARENA</i></span>
+                    </div>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
