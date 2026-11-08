@@ -1,0 +1,71 @@
+/* Dark mode colours.
+   The theme button in the menu sets data-bs-theme="dark" on the <html> tag,
+   and the rules below only apply when that is set. */
+
+[data-bs-theme="dark"] {
+    --page-bg: #0b110e;
+    --page-text: #e6eee8;
+    --muted-text: #a9b7ad;
+    --brand: #4cc27f;
+    --brand-hover: #86dfab;
+    --paper-100: #16211b;
+    --line: #2d3d33;
+}
+
+/* boxes that are white in light mode */
+[data-bs-theme="dark"] .club-card,
+[data-bs-theme="dark"] .content-panel,
+[data-bs-theme="dark"] .auth-layout,
+[data-bs-theme="dark"] .dashboard-nav-wrap,
+[data-bs-theme="dark"] .metric-card,
+[data-bs-theme="dark"] .empty-state {
+    background: #121b16;
+}
+[data-bs-theme="dark"] .empty-state { border-color: #3a4d41; }
+
+/* forms */
+[data-bs-theme="dark"] .form-control,
+[data-bs-theme="dark"] .form-select {
+    background-color: #0e1612;
+    color: var(--page-text);
+    border-color: #3d5043;
+}
+[data-bs-theme="dark"] .form-control::placeholder { color: #8a9a8f; }
+[data-bs-theme="dark"] .form-control:focus,
+[data-bs-theme="dark"] .form-select:focus {
+    background-color: #0e1612;
+    color: var(--page-text);
+    box-shadow: 0 0 0 0.2rem rgba(76, 194, 127, 0.25);
+}
+
+/* buttons: the green is light in dark mode, so the text must be dark */
+[data-bs-theme="dark"] .btn-sport { color: #04140a; }
+[data-bs-theme="dark"] .btn-sport:hover,
+[data-bs-theme="dark"] .btn-sport:focus { color: #04140a; }
+[data-bs-theme="dark"] .btn-outline-sport:hover { color: #04140a; }
+
+/* red buttons (Delete, Reject, Cancel) are too dark on the dark background */
+[data-bs-theme="dark"] .btn-outline-danger {
+    color: #ff8a94;
+    border-color: #ff8a94;
+}
+[data-bs-theme="dark"] .btn-outline-danger:hover {
+    color: #2b0a0d;
+    background: #ff8a94;
+}
+
+/* the green steps line and report bars stay readable */
+[data-bs-theme="dark"] .report-bar span { background: var(--brand); }
+
+/* the theme button itself (it sits on the dark menu bar in both modes) */
+.theme-toggle {
+    color: #e0e6e1;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: transparent;
+}
+.theme-toggle:hover,
+.theme-toggle:focus {
+    color: var(--dark-surface);
+    background: var(--highlight);
+    border-color: var(--highlight);
+}
