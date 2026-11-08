@@ -9,7 +9,33 @@ document.addEventListener('DOMContentLoaded', function () {
             this.classList.add('was-validated');
         });
     }
-
+// Light / dark mode button in the menu
+    var themeButton = document.getElementById('theme-toggle');
+    if (themeButton) {
+        var showButtonText = function () {
+            var current = document.documentElement.getAttribute('data-bs-theme');
+            if (current === 'dark') {
+                themeButton.textContent = 'Light mode';
+            } else {
+                themeButton.textContent = 'Dark mode';
+            }
+        };
+        showButtonText();
+        themeButton.addEventListener('click', function () {
+            var current = document.documentElement.getAttribute('data-bs-theme');
+            var next = 'dark';
+            if (current === 'dark') {
+                next = 'light';
+            }
+            document.documentElement.setAttribute('data-bs-theme', next);
+            try {
+                localStorage.setItem('theme', next);
+            } catch (error) {
+                // saving is not possible, the theme still changes for this page
+            }
+            showButtonText();
+        });
+    }
     // confirm deleting a record or cancelling a registration.
     var buttons = document.querySelectorAll('[data-confirm]');
     for (var j = 0; j < buttons.length; j++) {
