@@ -144,7 +144,7 @@ CREATE TABLE bookings (
 
 -- Demo passwords: Admin@123 and Student@123
 INSERT INTO users (student_id, full_name, email, password_hash, role) VALUES
-('ADMIN001', 'SportsHub Administrator', 'admin@nsbm.lk', '$2y$10$cLFQJDpWwlz6EWw6C9NhEePPDYNVtiNYdyMIkgFXNi6IUBboHbCce', 'admin'),
+('ADMIN001', 'GreenArena Administrator', 'admin@nsbm.lk', '$2y$10$cLFQJDpWwlz6EWw6C9NhEePPDYNVtiNYdyMIkgFXNi6IUBboHbCce', 'admin'),
 ('26.1IFSL001', 'Demo Student', 'student@nsbm.ac.lk', '$2y$10$tZIpnUWgukVN1XOoT62F2eNJ/jyaQkNaGaDgyDCj9ZtXOU8pBSzrm', 'student'),
 ('26.1IFSL002', 'Nethmi Perera', 'nethmi@nsbm.ac.lk', '$2y$10$tZIpnUWgukVN1XOoT62F2eNJ/jyaQkNaGaDgyDCj9ZtXOU8pBSzrm', 'student'),
 ('26.1IFSL003', 'Kavindu Silva', 'kavindu@nsbm.ac.lk', '$2y$10$tZIpnUWgukVN1XOoT62F2eNJ/jyaQkNaGaDgyDCj9ZtXOU8pBSzrm', 'student');
