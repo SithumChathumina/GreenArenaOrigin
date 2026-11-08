@@ -28,26 +28,6 @@ include __DIR__ . '/includes/header.php';
                     <a class="text-link" href="<?= e(url('fixtures.php')) ?>">See upcoming fixtures →</a>
                 </div>
             </div>
-            <figure class="hero-visual">
-            <svg viewBox="0 0 520 400" role="img" aria-labelledby="field-title field-desc">
-                <title id="field-title">University sports field illustration</title>
-                <desc id="field-desc">A green sports field with two players and a ball.</desc>
-                <rect x="18" y="18" width="484" height="340" rx="28" fill="#071b22" stroke="#34534c" stroke-width="2"/>
-                <path d="M56 54h408v268H56z" fill="#009147"/>
-                <path d="M260 54v268M56 188h408" stroke="#f4f7f5" stroke-opacity=".65" stroke-width="3"/>
-                <circle cx="260" cy="188" r="48" fill="none" stroke="#f4f7f5" stroke-opacity=".65" stroke-width="3"/>
-                <path d="M56 126h68v124H56M464 126h-68v124h68" fill="none" stroke="#f4f7f5" stroke-opacity=".65" stroke-width="3"/>
-                <circle cx="177" cy="134" r="18" fill="#f6dd38"/>
-                <path d="m165 158-18 64 28 4 22-52-14-16M155 178l-32 28M190 172l34 20M153 224l-24 48M176 224l22 48" fill="none" stroke="#f6dd38" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="354" cy="206" r="18" fill="#f4f7f5"/>
-                <path d="m342 230-22 58 28 8 24-54-12-16M330 248l-34 10M365 244l32 22M326 290l-28 38M350 292l30 34" fill="none" stroke="#f4f7f5" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="260" cy="240" r="17" fill="#f4f7f5" stroke="#000312" stroke-width="3"/>
-                <path d="m260 228 8 7-3 10h-11l-4-10 10-7Z" fill="#000312"/>
-                <path d="M0 386h520" stroke="#f6dd38" stroke-width="4"/>
-                <path d="M384 10v32M368 26h32" stroke="#f6dd38" stroke-width="4"/>
-            </svg>
-            <figcaption>Made for every level — from first practice to finals.</figcaption>
-            </figure>
         </div>
     </div>
     <div class="ticker" aria-hidden="true">

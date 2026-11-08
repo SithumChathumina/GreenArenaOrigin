@@ -93,9 +93,6 @@ p { max-width: 72ch; }
 .hero-copy { color: #cad4cc; font-size: 1.05rem; margin-bottom: 32px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
 .hero .text-link { color: var(--paper-50); font-weight: 600; }
-.hero-visual { margin: 0; }
-.hero-visual svg { display: block; width: 100%; height: auto; }
-.hero-visual figcaption { margin-top: 12px; color: #abb4ac; font-size: 0.8rem; text-align: right; }
 
 .ticker { overflow: hidden; border-top: 1px solid rgba(255, 255, 255, 0.12); background: var(--green-600); color: var(--dark-surface); }
 .ticker-track { display: flex; width: max-content; animation: ticker 18s linear infinite; }
