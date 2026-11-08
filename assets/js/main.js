@@ -9,18 +9,14 @@ document.addEventListener('DOMContentLoaded', function () {
             this.classList.add('was-validated');
         });
     }
-// Light / dark mode button in the menu
+    // Light / dark mode slider switch in the menu
     var themeButton = document.getElementById('theme-toggle');
     if (themeButton) {
-        var showButtonText = function () {
+        var updateSwitch = function () {
             var current = document.documentElement.getAttribute('data-bs-theme');
-            if (current === 'dark') {
-                themeButton.textContent = 'Light mode';
-            } else {
-                themeButton.textContent = 'Dark mode';
-            }
+            themeButton.setAttribute('aria-checked', current === 'dark' ? 'true' : 'false');
         };
-        showButtonText();
+        updateSwitch();
         themeButton.addEventListener('click', function () {
             var current = document.documentElement.getAttribute('data-bs-theme');
             var next = 'dark';
@@ -33,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } catch (error) {
                 // saving is not possible, the theme still changes for this page
             }
-            showButtonText();
+            updateSwitch();
         });
     }
     // confirm deleting a record or cancelling a registration.

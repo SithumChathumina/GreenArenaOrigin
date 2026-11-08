@@ -60,7 +60,11 @@ $flashes = get_flashes();
                                 <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-sm btn-sport" href="<?= e(url('register.php')) ?>">Join SportsHub</a></li>
                             <?php endif; ?>
                             <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-                                <button class="btn btn-sm theme-toggle" id="theme-toggle" type="button" aria-label="Switch between light and dark mode">Dark mode</button>
+                                <button class="theme-switch" id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark mode">
+                                    <img class="switch-icon icon-sun" src="<?= e(asset('img/sun.png')) ?>" alt="">
+                                    <img class="switch-icon icon-moon" src="<?= e(asset('img/moon.png')) ?>" alt="">
+                                    <span class="switch-knob"></span>
+                                </button>
                             </li>
                         </ul>
                     </div>

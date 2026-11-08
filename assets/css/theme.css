@@ -57,15 +57,38 @@
 /* the green steps line and report bars stay readable */
 [data-bs-theme="dark"] .report-bar span { background: var(--brand); }
 
-/* the theme button itself (it sits on the dark menu bar in both modes) */
-.theme-toggle {
-    color: #e0e6e1;
+/* the light / dark slider switch (it sits on the dark menu bar in both modes) */
+.theme-switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 62px;
+    height: 32px;
+    padding: 0 7px;
     border: 1px solid rgba(255, 255, 255, 0.45);
-    background: transparent;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.12);
+    cursor: pointer;
 }
-.theme-toggle:hover,
-.theme-toggle:focus {
-    color: var(--dark-surface);
+.theme-switch:focus-visible { outline: 3px solid var(--highlight); outline-offset: 3px; }
+.switch-icon { position: relative; z-index: 1; width: 16px; height: 16px; }
+
+/* the icons are black pictures; invert(1) makes them white when they sit on the dark bar */
+.icon-moon { filter: invert(1); opacity: 0.75; }
+
+/* the round knob that slides over one of the icons */
+.switch-knob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
     background: var(--highlight);
-    border-color: var(--highlight);
+    transition: transform 200ms ease-out, background-color 200ms ease-out;
 }
+[data-bs-theme="dark"] .theme-switch { background: rgba(76, 194, 127, 0.25); }
+[data-bs-theme="dark"] .switch-knob { transform: translateX(30px); background: #dfe7f5; }
+[data-bs-theme="dark"] .icon-sun { filter: invert(1); opacity: 0.75; }
+[data-bs-theme="dark"] .icon-moon { filter: none; opacity: 1; }
