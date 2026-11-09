@@ -74,7 +74,9 @@ p { max-width: 72ch; }
 .green-arena-title span { transition: color 0.15s; }
 .green-arena-title .t-nsbm { display: block; font-family: "Inter", sans-serif; font-size: 0.58rem; letter-spacing: 0.22em; color: #fff; margin-bottom: 3px; }
 .green-arena-title .t-green { color: var(--green-600); }
-.green-arena-title .t-arena { color: #fff; }
+.green-arena-title .t-arena { color: #fff; font-style: italic;}
+
+
 .brand:hover .green-arena-title span,
 .brand:active .green-arena-title span { color: var(--yellow-400); }
 
