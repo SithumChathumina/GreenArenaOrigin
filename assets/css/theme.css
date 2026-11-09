@@ -98,3 +98,6 @@
 @media (min-width: 1200px) {
     .theme-switch { transform: translateX(300px); }
 }
+@media (min-width: 1200px) {
+    .brand-mark,.green-arena-title { transform: translateX(-160px); }
+}
