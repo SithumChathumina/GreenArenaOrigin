@@ -11,8 +11,8 @@ $flashes = get_flashes();
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="NSBM SportsHub — university sports clubs, training, fixtures and facility bookings in one place.">
-        <title><?= e($pageTitle) ?> | NSBM SportsHub</title>
+        <meta name="description" content="NSBM GreenArena — university sports clubs, training, fixtures and facility bookings in one place.">
+        <title><?= e($pageTitle) ?> | NSBM GreenArena</title>
         <link rel="icon" type="image/png" href="<?= e(asset('img/image1.png')) ?>">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
