@@ -19,6 +19,7 @@
     --brand: var(--green-700);
     --brand-hover: var(--green-800);
     --highlight: var(--yellow-400);
+    --highlight2: var(--green-600);
     --dark-surface: var(--navy-950);
     --line: #d1dad2;
 
@@ -62,13 +63,20 @@ p { max-width: 72ch; }
 .skip-link:focus { top: 12px; }
 
 .site-navbar { background: var(--dark-surface); padding-block: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
-.brand { display: inline-flex; align-items: center; gap: 10px; font-family: "Barlow Condensed", sans-serif; font-weight: 800; font-size: 1.45rem; letter-spacing: 0.02em; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-family: "Barlow Condensed", sans-serif; font-weight: 800; font-size: 1.9rem; letter-spacing: 0.02em; }
 .brand:hover { color: var(--highlight); }
 .brand small { display: block; font-family: "Inter", sans-serif; font-size: 0.58rem; line-height: 1; letter-spacing: 0.22em; color: var(--highlight); }
 .brand-mark { width: 38px; height: 38px; flex: 0 0 auto; }
 .site-navbar .nav-link { font-size: 0.92rem; font-weight: 600; margin-inline: 4px; color: #e0e6e1; }
 .site-navbar .nav-link:hover, .site-navbar .nav-link.active { color: var(--highlight); }
 .navbar-toggler { min-width: 44px; min-height: 44px; }
+.green-arena-title { display: inline-block; font-size: 2rem; line-height: 1; }
+.green-arena-title span { transition: color 0.15s; }
+.green-arena-title .t-nsbm { display: block; font-family: "Inter", sans-serif; font-size: 0.58rem; letter-spacing: 0.22em; color: #fff; margin-bottom: 3px; }
+.green-arena-title .t-green { color: var(--green-600); }
+.green-arena-title .t-arena { color: #fff; }
+.brand:hover .green-arena-title span,
+.brand:active .green-arena-title span { color: var(--yellow-400); }
 
 .btn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; border-radius: var(--radius-sm); }
 .btn-sm { min-height: 38px; }
@@ -115,6 +123,7 @@ p { max-width: 72ch; }
 .info-tile-dark p { color: #b7c1b9; }
 .info-tile-green { background: var(--green-600); color: var(--dark-surface); border-color: transparent; }
 .info-tile-green p { color: var(--dark-surface); }
+.info-tile-green .link-arrow { color: #ffff54; text-decoration: underline; }
 .big-number { display: block; font-family: "Barlow Condensed", sans-serif; font-size: clamp(4rem, 9vw, 7rem); line-height: 0.9; font-weight: 800; font-variant-numeric: tabular-nums; }
 
 .club-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 20px; }
