@@ -96,8 +96,12 @@
 /* the switch sits outside the menu: next to the menu button on phones, at the far right on a computer */
 .theme-switch-wrap { margin-left: auto; margin-right: 12px; }
 @media (min-width: 1200px) {
-    .theme-switch { transform: translateX(300px); }
+    .theme-switch { transform: translateX(200%); }
 }
 @media (min-width: 1200px) {
-    .brand-mark,.green-arena-title { transform: translateX(-160px); }
-}
+    .brand-mark { transform: translateX(-300%); }
+}    
+    
+@media (min-width: 1200px) {
+    .green-arena-title { transform: translateX(-100%); }
+}   
