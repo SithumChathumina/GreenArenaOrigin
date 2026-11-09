@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="footer-bottom">
-            <span>Faculty of Computing · Web and Mobile Application Development</span>
+            <span>Faculty of Computing · 26.1 Batch</span>
             <span>&copy; <?= date('Y') ?> NSBM GreenArena</span>
     </div>
 </div>
