@@ -92,3 +92,9 @@
 [data-bs-theme="dark"] .switch-knob { transform: translateX(30px); background: #dfe7f5; }
 [data-bs-theme="dark"] .icon-sun { filter: invert(1); opacity: 0.75; }
 [data-bs-theme="dark"] .icon-moon { filter: none; opacity: 1; }
+
+/* the switch sits outside the menu: next to the menu button on phones, at the far right on a computer */
+.theme-switch-wrap { margin-left: auto; margin-right: 12px; }
+@media (min-width: 1200px) {
+    .theme-switch { transform: translateX(300px); }
+}
