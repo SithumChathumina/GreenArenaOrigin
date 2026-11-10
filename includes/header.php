@@ -57,7 +57,7 @@ $flashes = get_flashes();
                                 </li>
                             <?php else: ?>
                                 <li class="nav-item"><a class="nav-link <?= active_class('login', $activePage) ?>" href="<?= e(url('login.php')) ?>">Log in</a></li>
-                                <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-sm btn-sport" href="<?= e(url('register.php')) ?>">Join NSBM GreenArena</a></li>
+                                <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-sm btn-sport" href="<?= e(url('register.php')) ?>">Join GreenArena</a></li>
                             <?php endif; ?>
                             <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
                                 <button class="theme-switch" id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark mode">
