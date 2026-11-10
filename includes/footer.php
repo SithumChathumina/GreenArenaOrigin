@@ -17,7 +17,7 @@
             <h2 class="footer-heading">Students</h2>
                 <a href="<?= e(url('student/registrations.php')) ?>">Tournament registration</a>
                 <a href="<?= e(url('student/bookings.php')) ?>">Facility booking</a>
-                <a href="mailto:greenarena@nsbm.lk">greenarena@nsbm.lk</a>
+                <a href="<?= e(url('contact.php')) ?>">Contact the admin</a>
         </div>
     </div>
     <div class="footer-bottom">
