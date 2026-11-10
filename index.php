@@ -75,7 +75,7 @@ include __DIR__ . '/includes/header.php';
     <div class="container">
         <div class="section-heading">
             <div><span class="section-kicker">This semester</span>
-                <h2 id="whats-on-title">What’s on at SportsHub</h2>
+                <h2 id="whats-on-title">What’s on at NSBM GreenArena</h2>
             </div>
             <p>Live information from the club database, not another noticeboard.</p>
         </div>
@@ -116,7 +116,7 @@ include __DIR__ . '/includes/header.php';
     <div class="container">
         <div class="section-heading">
             <div><span class="section-kicker">Pick your sport</span>
-                <h2 id="featured-clubs-title">Clubs at NSBM</h2>
+                <h2 id="featured-clubs-title">Clubs at NSBM GreenArena</h2>
             </div>
             <a class="link-arrow" href="<?= e(url('clubs.php')) ?>">Browse every club</a>
         </div>
