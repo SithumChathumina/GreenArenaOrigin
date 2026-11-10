@@ -56,7 +56,7 @@ include __DIR__ . '/includes/header.php';
                 </div>
             </div>
             <div class="auth-form">
-                <h2 class="mb-4">Log in to SportsHub</h2>
+                <h2 class="mb-4">Log in to NSBM Green Arena</h2>
                 <?php if ($error): ?>
                     <div class="alert alert-danger" role="alert"><?= e($error) ?>
                 </div><?php endif; ?>
@@ -74,7 +74,7 @@ include __DIR__ . '/includes/header.php';
                     </div>
                     <button type="submit" class="btn btn-sport w-100">Log in</button>
                 </form>
-                <p class="mt-4 mb-0">New to SportsHub? <a href="<?= e(url('register.php')) ?>">Create a student account</a>.</p>
+                <p class="mt-4 mb-0">New to NSBM GreenArena? <a href="<?= e(url('register.php')) ?>">Create a student account</a>.</p>
             </div>
         </div>
     </div>

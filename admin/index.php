@@ -24,7 +24,7 @@ include __DIR__ . '/../includes/header.php';
 include __DIR__ . '/../includes/admin_nav.php';
 ?>
 <div class="container dashboard-head"><span class="section-kicker">Administrator area</span>
-    <h1>SportsHub control room</h1><p>Manage clubs, people, fixtures and requests from one dashboard.</p>
+    <h1>GreenArena control room</h1><p>Manage clubs, people, fixtures and requests from one dashboard.</p>
 </div>
 <div class="container dashboard-content">
     <div class="metric-grid">
