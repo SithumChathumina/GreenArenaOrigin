@@ -1,5 +1,9 @@
 <?php /* Menu shown on the admin pages */ ?>
-<?php $adminSection = $adminSection ?? ''; ?>
+<?php
+$adminSection = $adminSection ?? '';
+// number of new messages, shown next to the Messages link
+$newMessages = (int) fetch\_one("SELECT COUNT(\*) AS total FROM messages WHERE status='new'")\['total'];
+?>
 <div class="dashboard-nav-wrap admin-nav-wrap">
     <div class="container">
         <nav class="dashboard-nav" aria-label="Admin panel">
