@@ -89,7 +89,7 @@ p { max-width: 72ch; }
 .btn-outline-sport { color: var(--brand); border-color: var(--brand); }
 .btn-outline-sport:hover { background: var(--brand); color: #fff; }
 .link-arrow { font-weight: 700; text-decoration: none; }
-.link-arrow::after { content: " →"; }
+.link-arrow::after { content: "→"; }
 
 .hero { position: relative; overflow: hidden; background: linear-gradient(rgba(4, 6, 21, 0.78), rgba(4, 6, 21, 0.85)), url('../img/background4.jpg'); padding: 55px 0 0;  min-height: 510px;
          background-size: cover; background-position: center; background-repeat: no-repeat; color: var(--paper-50); padding: clamp(64px, 9vw, 112px) 0 0;}
