@@ -30,44 +30,16 @@ include __DIR__ . '/includes/header.php';
             </div>
         </div>
     </div>
+    <?php $sports = ['CRICKET', 'FOOTBALL', 'BASKETBALL', 'BADMINTON', 'RUGBY', 'ATHLETICS']; ?>
     <div class="ticker" aria-hidden="true">
         <div class="ticker-track">
-            <span>CRICKET &nbsp;</span>
-            <span>|&nbsp;</span>
-            <span> FOOTBALL &nbsp;</span>
-            <span>| &nbsp;</span>
-            <span> BASKETBALL &nbsp;</span>
-            <span>| &nbsp;</span>
-            <span> BADMINTON &nbsp;</span>
-            <span>| &nbsp;</span>
-            <span> RUGBY &nbsp;</span>
-            <span>| &nbsp;</span>
-            <span> ATHLETICS &nbsp;</span>
-            <span>| &nbsp;</span>
-            <span>CRICKET &nbsp;</span>
-            <span>|&nbsp;</span>
-            <span> FOOTBALL &nbsp;</span>
-            <span>| &nbsp;</span>
-            <span> BASKETBALL &nbsp;</span>
-            <span>| &nbsp;</span>
-            <span> BADMINTON &nbsp;</span>
-            <span>| &nbsp;</span>
-            <span> RUGBY &nbsp;</span>
-            <span>| &nbsp;</span>
-            <span> ATHLETICS &nbsp;</span>
-            <span>| &nbsp;</span>
-            <span>CRICKET &nbsp;</span>
-            <span>|&nbsp;</span>
-            <span> FOOTBALL &nbsp;</span>
-            <span>| &nbsp;</span>
-            <span> BASKETBALL &nbsp;</span>
-            <span>| &nbsp;</span>
-            <span> BADMINTON &nbsp;</span>
-            <span>| &nbsp;</span>
-            <span> RUGBY &nbsp;</span>
-            <span>| &nbsp;</span>
-            <span> ATHLETICS &nbsp;</span>
-            <span>| &nbsp;</span>
+            <?php for ($g = 0; $g < 4; $g++): ?>
+                <?php foreach ($sports as $s): ?>
+                    <span><?= $s ?> &nbsp;</span>
+                    <span>| &nbsp;</span>
+                <?php endforeach; ?>
+            <?php endfor; ?>
+        </div>
     </div>
 </section>
 

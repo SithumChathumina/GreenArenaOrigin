@@ -105,9 +105,18 @@ p { max-width: 72ch; }
 .hero .text-link { color: var(--paper-50); font-weight: 600; }
 
 .ticker { overflow: hidden; border-top: 1px solid rgba(255, 255, 255, 0.12); background: var(--green-600); color: var(--dark-surface); }
-.ticker-track { display: flex; width: max-content; animation: ticker 18s linear infinite; }
+.ticker-track { display: flex; width: max-content; will-change: transform; -webkit-animation: ticker 24s linear infinite; animation: ticker 24s linear infinite; }
 .ticker span { padding: 12px 28px; font-family: "Barlow Condensed", sans-serif; font-size: 1.1rem; font-weight: 800; letter-spacing: 0.08em; white-space: nowrap; }
+@-webkit-keyframes ticker { to { -webkit-transform: translateX(-50%); } }
 @keyframes ticker { to { transform: translateX(-50%); } }
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+
+    /* Keep the ticker running, just slower. Must stay AFTER the global rule. */
+    .ticker-track { animation-duration: 90s !important; animation-iteration-count: infinite !important; }
+}
 
 .section { padding: clamp(56px, 8vw, 88px) 0; }
 .section-dark { background: var(--navy-900); color: var(--paper-50); }
@@ -248,8 +257,4 @@ textarea.form-control { min-height: 110px; }
     .hero { padding-top: 48px; }
     .page-content { padding-top: 28px; }
 }
-@media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-    .ticker-track { animation: none; }
-}
+
