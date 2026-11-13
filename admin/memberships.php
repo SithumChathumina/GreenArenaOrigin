@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     } else {
         run_query("UPDATE memberships SET status='rejected', reviewed_at=NOW() WHERE id=?", [$id]);
+        notify($membership['user_id'], 'membership', 'Your request to join ' . $membership['club_name'] . ' was rejected.', 'club.php?id=' . $membership['club_id']);
         flash('success', 'Membership rejected.');
     }
     redirect('admin/memberships.php');
