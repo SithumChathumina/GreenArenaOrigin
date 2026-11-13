@@ -2,7 +2,7 @@
 <?php
 $adminSection = $adminSection ?? '';
 // number of new messages, shown next to the Messages link
-$newMessages = (int) fetch\_one("SELECT COUNT(\*) AS total FROM messages WHERE status='new'")\['total'];
+$newMessages = (int) fetch_one("SELECT COUNT(*) AS total FROM messages WHERE status='new'")['total'];
 ?>
 <div class="dashboard-nav-wrap admin-nav-wrap">
     <div class="container">
@@ -16,7 +16,8 @@ $newMessages = (int) fetch\_one("SELECT COUNT(\*) AS total FROM messages WHERE s
             <a class="<?= active_class('results', $adminSection) ?>" href="<?= e(url('admin/results.php')) ?>">Results</a>
             <a class="<?= active_class('facilities', $adminSection) ?>" href="<?= e(url('admin/facilities.php')) ?>">Facilities</a>
             <a class="<?= active_class('bookings', $adminSection) ?>" href="<?= e(url('admin/bookings.php')) ?>">Bookings</a>
-            <a class="<?= active_class('reports', $adminSection) ?>" href="<?= e(url('admin/reports.php')) ?>">Reports</a>
+            <a class="<?= active_class('messages', $adminSection) ?>" href="<?= e(url('admin/messages.php')) ?>">Messages
+                <?php if ($newMessages > 0): ?> <span class="badge text-bg-danger"><?= $newMessages ?></span><?php endif; ?></a>
         </nav>
     </div>
 </div>
