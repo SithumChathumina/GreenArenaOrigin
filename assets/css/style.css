@@ -258,3 +258,33 @@ textarea.form-control { min-height: 110px; }
     .page-content { padding-top: 28px; }
 }
 
+/* Notifications: bell in the menu and the notifications page */
+.notification-bell { position: relative; display: inline-flex; align-items: center; min-height: 44px; }
+.notification-badge {
+    position: absolute;
+    top: 4px;
+    right: -2px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 9px;
+    background: #dc3545;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+}
+.notification-badge[hidden] { display: none; }
+.notification-list { list-style: none; margin: 0; padding: 0; }
+.notification-item { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius-sm); margin-bottom: 10px; }
+.notification-item.unread { border-left: 4px solid var(--brand); background: rgba(10, 136, 66, 0.08); }
+.notification-body { display: flex; flex-direction: column; gap: 2px; }
+.notification-type { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-text); }
+.notification-text { font-weight: 600; color: var(--page-text); text-decoration: none; }
+a.notification-text:hover { color: var(--brand); text-decoration: underline; }
+.notification-item:not(.unread) .notification-text { font-weight: 400; }
+.notification-time { color: var(--muted-text); }
+@media (max-width: 575px) {
+    .notification-item { flex-direction: column; align-items: flex-start; }
+}

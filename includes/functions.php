@@ -122,3 +122,66 @@ function active_class($page, $activePage)
     }
     return '';
 }
+
+
+// ---------- Notifications ----------
+// Each notification belongs to one user and is stored in the notifications table.
+
+// true if the notifications table exists (so a missing table never breaks a page)
+function notifications_ready()
+{
+    global $connection;
+    static $ready = null;
+    if ($ready === null) {
+        $result = mysqli_query($connection, "SHOW TABLES LIKE 'notifications'");
+        $ready = $result && mysqli_num_rows($result) > 0;
+    }
+    return $ready;
+}
+
+// add one notification for one user. $link is a page inside the site, for example 'student/bookings.php'
+function notify($userId, $type, $message, $link = null)
+{
+    if (!notifications_ready()) {
+        return;
+    }
+    run_query('INSERT INTO notifications (user_id, type, message, link) VALUES (?, ?, ?, ?)', [
+        (int) $userId,
+        $type,
+        mb_substr($message, 0, 255),
+        $link,
+    ]);
+}
+
+// send the same notification to every admin
+function notify_admins($type, $message, $link = null)
+{
+    if (!notifications_ready()) {
+        return;
+    }
+    $admins = fetch_all("SELECT id FROM users WHERE role = 'admin'");
+    foreach ($admins as $admin) {
+        notify($admin['id'], $type, $message, $link);
+    }
+}
+
+// send the same notification to every approved member of a club
+function notify_club_members($clubId, $type, $message, $link = null)
+{
+    if (!notifications_ready()) {
+        return;
+    }
+    $members = fetch_all("SELECT user_id FROM memberships WHERE club_id = ? AND status = 'approved'", [$clubId]);
+    foreach ($members as $member) {
+        notify($member['user_id'], $type, $message, $link);
+    }
+}
+
+// how many unread notifications a user has (shown on the bell)
+function unread_count($userId)
+{
+    if (!notifications_ready()) {
+        return 0;
+    }
+    return (int) fetch_one('SELECT COUNT(*) AS total FROM notifications WHERE user_id = ? AND is_read = 0', [$userId])['total'];
+}

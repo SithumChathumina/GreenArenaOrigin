@@ -42,6 +42,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Notification bell: ask the server for the unread count every 30 seconds
+    var bellCount = document.getElementById('notification-count');
+    if (bellCount) {
+        var refreshBell = function () {
+            fetch(bellCount.closest('a').href.replace('notifications.php', 'notifications_count.php'))
+                .then(function (response) { return response.json(); })
+                .then(function (data) {
+                    bellCount.textContent = data.count;
+                    bellCount.hidden = data.count === 0;
+                })
+                .catch(function () {
+                    // no network: keep the number that is already shown
+                });
+        };
+        setInterval(refreshBell, 30000);
+    }
+
     // Uses the local calendar date as the earliest booking date.NGL we used some helping tools for this part ;)
     var today = new Date();
     var year = today.getFullYear();

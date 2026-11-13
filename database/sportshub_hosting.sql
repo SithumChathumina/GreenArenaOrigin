@@ -1,3 +1,7 @@
+-- WARNING: this file DELETES every table listed below and recreates it with sample data.
+-- Never import it into a database that holds data you want to keep.
+-- To add only the notifications table to an existing database, run database/add_notifications.sql instead.
+
 --This is for live hosting on InfinityFree
 -- i will keep this until the other parts are completed
 --notes
@@ -5,6 +9,8 @@
 
 
 SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE IF EXISTS notifications;
+DROP TABLE IF EXISTS messages;
 DROP TABLE IF EXISTS bookings;
 DROP TABLE IF EXISTS match_registrations;
 DROP TABLE IF EXISTS tournament_registrations;
@@ -154,6 +160,18 @@ CREATE TABLE IF NOT EXISTS messages (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
+CREATE TABLE IF NOT EXISTS notifications (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id INT UNSIGNED NOT NULL,
+    type VARCHAR(30) NOT NULL,
+    message VARCHAR(255) NOT NULL,
+    link VARCHAR(255) NULL,
+    is_read TINYINT(1) NOT NULL DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_notifications_user (user_id, is_read),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
 -- Demo passwords: Admin@123 and Student@123
 INSERT INTO users (student_id, full_name, email, password_hash, role) VALUES
 ('ADMIN001', 'GreenArena Administrator', 'admin@nsbm.lk', '$2y$10$cLFQJDpWwlz6EWw6C9NhEePPDYNVtiNYdyMIkgFXNi6IUBboHbCce', 'admin'),
@@ -209,3 +227,11 @@ INSERT INTO facilities (name, type, location, total_units, status) VALUES
 INSERT INTO bookings (user_id, facility_id, booking_date, start_time, end_time, quantity, purpose, status, admin_note) VALUES
 (2, 6, CURDATE() + INTERVAL 3 DAY, '15:00', '16:00', 2, 'Club practice', 'approved', 'Collect from the equipment room.'),
 (2, 1, CURDATE() + INTERVAL 5 DAY, '14:00', '16:00', 1, 'Friendly basketball game', 'pending', NULL);
+
+-- Sample notifications for the demo student (user 2) and the admin (user 1)
+INSERT INTO notifications (user_id, type, message, link, is_read) VALUES
+(2, 'membership', 'Your request to join NSBM Cricket Club was approved.', 'club.php?id=1', 0),
+(2, 'booking', 'Your booking for Basketball was approved.', 'student/bookings.php', 0),
+(2, 'training', 'New training session: Shooting fundamentals at Indoor Sports Complex.', 'student/calendar.php', 1),
+(1, 'booking', 'Demo Student requested Indoor Court 1.', 'admin/bookings.php', 0),
+(1, 'membership', 'Demo Student requested to join NSBM Badminton Club.', 'admin/memberships.php', 0);
