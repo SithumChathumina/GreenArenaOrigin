@@ -27,9 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'join'
             flash('warning', 'This club has reached its member limit.');
         } elseif ($existing) {
             run_query("UPDATE memberships SET status = 'pending', joined_at = NOW(), reviewed_at = NULL WHERE id = ?", [$existing['id']]);
+            notify_admins('membership', current_user()['full_name'] . ' requested to join ' . $club['name'] . '.', 'admin/memberships.php');
             flash('success', 'Your membership request has been sent again.');
         } else {
             run_query('INSERT INTO memberships (user_id, club_id) VALUES (?, ?)', [current_user()['id'], $id]);
+            notify_admins('membership', current_user()['full_name'] . ' requested to join ' . $club['name'] . '.', 'admin/memberships.php');
             flash('success', 'Your membership request has been sent for approval.');
         }
     }
