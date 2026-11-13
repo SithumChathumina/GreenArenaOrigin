@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $values['venue'],
                     $id,
                 ]);
+                notify_club_members((int) $values['club_id'], 'training', 'Training session updated: ' . $values['title'] . ' on ' . format_date($values['session_date']) . ' at ' . $values['venue'] . '.', 'student/calendar.php');
                 flash('success', 'Training session updated.');
             } else {
                 run_query('INSERT INTO training_sessions (club_id, title, session_date, start_time, end_time, venue) VALUES (?, ?, ?, ?, ?, ?)', [
