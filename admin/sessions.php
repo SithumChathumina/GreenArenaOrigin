@@ -58,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $values['end_time'],
                     $values['venue'],
                 ]);
+                notify_club_members((int) $values['club_id'], 'training', 'New training session: ' . $values['title'] . ' on ' . format_date($values['session_date']) . ' at ' . $values['venue'] . '.', 'student/calendar.php');
                 flash('success', 'Training session scheduled.');
             }
             redirect('admin/sessions.php');
