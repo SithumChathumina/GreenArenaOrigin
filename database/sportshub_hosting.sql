@@ -172,6 +172,18 @@ CREATE TABLE IF NOT EXISTS notifications (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
+CREATE TABLE IF NOT EXISTS messages (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id INT UNSIGNED NULL,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    subject VARCHAR(150) NOT NULL,
+    message TEXT NOT NULL,
+    status ENUM('new', 'read') NOT NULL DEFAULT 'new',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB;
+
 -- Demo passwords: Admin@123 and Student@123
 INSERT INTO users (student_id, full_name, email, password_hash, role) VALUES
 ('ADMIN001', 'GreenArena Administrator', 'admin@nsbm.lk', '$2y$10$cLFQJDpWwlz6EWw6C9NhEePPDYNVtiNYdyMIkgFXNi6IUBboHbCce', 'admin'),
