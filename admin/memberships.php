@@ -7,7 +7,7 @@ require_admin();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = (int) ($_POST['id'] ?? 0);
     $status = $_POST['status'] ?? '';
-    $membership = fetch_one('SELECT m.*, c.max_members FROM memberships m JOIN clubs c ON c.id=m.club_id WHERE m.id = ?', [$id]);
+    $membership = fetch_one('SELECT m.*, c.max_members, c.name AS club_name FROM memberships m JOIN clubs c ON c.id=m.club_id WHERE m.id = ?', [$id]);
     if (!$membership || !in_array($status, ['approved', 'rejected'], true)) {
         flash('danger', 'Invalid membership update.');
     } elseif ($status === 'approved') {
@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         else {
             run_query("UPDATE memberships SET status='approved', reviewed_at=NOW() WHERE id=?", [$id]);
+            notify($membership['user_id'], 'membership', 'Your request to join ' . $membership['club_name'] . ' was approved.', 'club.php?id=' . $membership['club_id']);
             flash('success', 'Membership approved.');
         }
     } else {
