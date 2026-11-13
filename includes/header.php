@@ -5,6 +5,8 @@ $activePage = $activePage ?? '';
 $bodyClass = $bodyClass ?? '';
 $user = current_user();
 $flashes = get_flashes();
+// number shown on the notification bell
+$unreadNotifications = $user ? unread_count($user['id']) : 0;
 ?>
 <!doctype html>
 <html lang="en">
@@ -50,6 +52,12 @@ $flashes = get_flashes();
                             <li class="nav-item"><a class="nav-link <?= active_class('results', $activePage) ?>" href="<?= e(url('results.php')) ?>">Results</a></li>
                             <?php if ($user): ?>
                                 <li class="nav-item"><a class="nav-link <?= active_class('dashboard', $activePage) ?>" href="<?= e(url($user['role'] === 'admin' ? 'admin/index.php' : 'student/dashboard.php')) ?>"><?= $user['role'] === 'admin' ? 'Admin panel' : 'My dashboard' ?></a></li>
+                                <li class="nav-item ms-lg-2">
+                                    <a class="nav-link notification-bell <?= active_class('notifications', $activePage) ?>" href="<?= e(url('notifications.php')) ?>" aria-label="Notifications">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+                                        <span class="notification-badge" id="notification-count" <?= $unreadNotifications > 0 ? '' : 'hidden' ?>><?= $unreadNotifications ?></span>
+                                    </a>
+                                </li>
                                 <li class="nav-item ms-lg-2">
                                     <form action="<?= e(url('logout.php')) ?>" method="post" class="m-0">
                                         <button class="btn btn-sm btn-outline-light w-100" type="submit">Log out</button>
