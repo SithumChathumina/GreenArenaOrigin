@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $_POST['status'] ?? '';
     $homeScore = $_POST['home_score'] ?? '';
     $awayScore = $_POST['away_score'] ?? '';
-    if (!fetch_one('SELECT id FROM matches WHERE id=?', [$id]) || !in_array($status, ['scheduled', 'completed', 'cancelled'], true)) {
+    $oldMatch = fetch_one('SELECT * FROM matches WHERE id=?', [$id]);
+if (!$oldMatch || !in_array($status, ['scheduled', 'completed', 'cancelled'], true)) {
         flash('danger', 'Invalid result update.');
     } elseif ($status === 'completed' && (!is_numeric($homeScore) || !is_numeric($awayScore) || (int) $homeScore < 0 || (int) $awayScore < 0)) {
         flash('danger', 'Enter valid non-negative scores before completing a match.');
@@ -20,6 +21,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $home = $status === 'completed' ? (int) $homeScore : null;
         $away = $status === 'completed' ? (int) $awayScore : null;
         run_query('UPDATE matches SET status=?, home_score=?, away_score=? WHERE id=?', [$status, $home, $away, $id]);
+        // tell the students registered for this match, but only if the result really changed
+        $changed = $oldMatch['status'] !== $status || (string) $oldMatch['home_score'] !== (string) $home || (string) $oldMatch['away_score'] !== (string) $away;
+        if ($changed && $status !== 'scheduled') {
+            $text = $oldMatch['home_team'] . ' vs ' . $oldMatch['away_team'];
+            if ($status === 'completed') {
+                $text = 'Final result: ' . $oldMatch['home_team'] . ' ' . $home . ' - ' . $away . ' ' . $oldMatch['away_team'] . '.';
+            } else {
+                $text = 'Match cancelled: ' . $text . '.';
+            }
+            $players = fetch_all("SELECT user_id FROM match_registrations WHERE match_id=? AND status='registered'", [$id]);
+            foreach ($players as $player) {
+                notify($player['user_id'], 'match', $text, 'results.php');
+            }
+        }
         flash('success', 'Match result updated.');
     }
     redirect('admin/results.php');
