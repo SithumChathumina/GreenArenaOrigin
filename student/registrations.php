@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 flash('success', 'Your tournament registration is active again.');
             } else {
                 run_query('INSERT INTO tournament_registrations (tournament_id, user_id, team_name) VALUES (?, ?, ?)', [$tournamentId, $userId, $teamName]);
+                notify($userId, 'registration', 'You are registered for ' . $tournament['name'] . ' as team ' . $teamName . '.', 'student/registrations.php');
                 flash('success', 'You have registered for ' . $tournament['name'] . '.');
             }
         }
@@ -58,9 +59,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 flash('info', 'You are already registered for this match.');
             } elseif ($existing) {
                 run_query("UPDATE match_registrations SET preferred_team = ?, status = 'registered', created_at = NOW() WHERE id = ?", [$team, $existing['id']]);
+                notify($userId, 'registration', 'You are registered for the match ' . $match['home_team'] . ' vs ' . $match['away_team'] . '.', 'student/registrations.php');
                 flash('success', 'Your match registration is active again.');
             } else {
                 run_query('INSERT INTO match_registrations (match_id, user_id, preferred_team) VALUES (?, ?, ?)', [$matchId, $userId, $team]);
+                notify($userId, 'registration', 'You are registered for the match ' . $match['home_team'] . ' vs ' . $match['away_team'] . '.', 'student/registrations.php');
                 flash('success', 'You have registered for the match.');
             }
         }
