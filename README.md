@@ -14,6 +14,11 @@ Built with HTML, CSS, JavaScript, PHP and MySQL.
 | 5 | Kaveesha | Admin dashboard, clubs, memberships and training |
 | 6 | Risinu | Admin tournaments, matches, results and reports |
 
+## Notifications
+Students and admins get in-site notifications (bell icon in the menu, page `notifications.php`).
+Examples: a membership or booking is approved or rejected, a match result is recorded, a training session is added.
+Notifications can only be marked as read. If you already have a database, add the new table with `database/add_notifications.sql`.
+
 ## How to run it
 1. Copy the folder into `C:\xampp\htdocs\` and start Apache and MySQL in XAMPP
 2. Open phpMyAdmin and import `database/sportshub.sql`
