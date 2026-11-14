@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = (int) ($_POST['id'] ?? 0);
     $status = $_POST['status'] ?? '';
     $note = trim($_POST['admin_note'] ?? '');
-    $booking = fetch_one('SELECT b.*, f.total_units FROM bookings b JOIN facilities f ON f.id=b.facility_id WHERE b.id=?', [$id]);
+    $booking = fetch_one('SELECT b.*, f.total_units, f.name AS facility_name FROM bookings b JOIN facilities f ON f.id=b.facility_id WHERE b.id=?', [$id]);
     if (!$booking || !in_array($status, ['approved', 'rejected'], true)) {
         flash('danger', 'Invalid booking update.');
     } elseif (strlen($note) > 255) {
@@ -22,10 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         else {
             run_query("UPDATE bookings SET status='approved', admin_note=? WHERE id=?", [$note ?: null, $id]);
+            notify($booking['user_id'], 'booking', 'Your booking for ' . $booking['facility_name'] . ' on ' . format_date($booking['booking_date']) . ' was approved.', 'student/bookings.php');
             flash('success', 'Booking approved.');
         }
     } else {
         run_query("UPDATE bookings SET status='rejected', admin_note=? WHERE id=?", [$note ?: null, $id]);
+        notify($booking['user_id'], 'booking', 'Your booking for ' . $booking['facility_name'] . ' on ' . format_date($booking['booking_date']) . ' was rejected.', 'student/bookings.php');
         flash('success', 'Booking rejected.');
     }
     redirect('admin/bookings.php');
