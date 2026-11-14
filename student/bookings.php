@@ -58,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $quantity,
                 $values['purpose'],
             ]);
+            notify_admins('booking', current_user()['full_name'] . ' requested ' . $facility['name'] . ' on ' . format_date($values['booking_date']) . '.', 'admin/bookings.php');
             flash('success', 'Your booking request has been sent for approval.');
             redirect('student/bookings.php');
         }
