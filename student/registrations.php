@@ -34,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 run_query("UPDATE tournament_registrations SET team_name = ?, status = 'registered', created_at = NOW() WHERE id = ?", [$teamName, $existing['id']]);
                 notify($userId, 'registration', 'Your registration for ' . $tournament['name'] . ' as team ' . $teamName . ' is active again.', 'student/registrations.php');
                 flash('success', 'Your tournament registration is active again.');
-                flash('success', 'Your tournament registration is active again.');
             } else {
                 run_query('INSERT INTO tournament_registrations (tournament_id, user_id, team_name) VALUES (?, ?, ?)', [$tournamentId, $userId, $teamName]);
                 notify($userId, 'registration', 'You are registered for ' . $tournament['name'] . ' as team ' . $teamName . '.', 'student/registrations.php');
