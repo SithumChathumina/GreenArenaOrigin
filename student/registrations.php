@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             flash('danger', 'Tournament not found.');
         } elseif ($action === 'withdraw_tournament') {
             run_query("UPDATE tournament_registrations SET status = 'withdrawn' WHERE tournament_id = ? AND user_id = ?", [$tournamentId, $userId]);
+            notify($userId, 'registration', 'You have withdrawn from ' . $tournament['name'] . '.', 'student/registrations.php');
             flash('success', 'Your tournament registration has been withdrawn.');
         } elseif ($tournament['status'] !== 'upcoming' || $tournament['registration_deadline'] < date('Y-m-d')) {
             flash('warning', 'Registration for this tournament is closed.');
@@ -31,6 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 flash('warning', 'This tournament has reached its team limit.');
             } elseif ($existing) {
                 run_query("UPDATE tournament_registrations SET team_name = ?, status = 'registered', created_at = NOW() WHERE id = ?", [$teamName, $existing['id']]);
+                notify($userId, 'registration', 'Your registration for ' . $tournament['name'] . ' as team ' . $teamName . ' is active again.', 'student/registrations.php');
+                flash('success', 'Your tournament registration is active again.');
                 flash('success', 'Your tournament registration is active again.');
             } else {
                 run_query('INSERT INTO tournament_registrations (tournament_id, user_id, team_name) VALUES (?, ?, ?)', [$tournamentId, $userId, $teamName]);
@@ -45,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             flash('danger', 'Match not found.');
         } elseif ($action === 'withdraw_match') {
             run_query("UPDATE match_registrations SET status = 'withdrawn' WHERE match_id = ? AND user_id = ?", [$matchId, $userId]);
+            notify($userId, 'registration', 'You have withdrawn from the match ' . $match['home_team'] . ' vs ' . $match['away_team'] . '.', 'student/registrations.php');
             flash('success', 'Your match registration has been withdrawn.');
         } elseif ($match['status'] !== 'scheduled' || strtotime($match['match_datetime']) < time()) {
             flash('warning', 'Registration for this match is closed.');
