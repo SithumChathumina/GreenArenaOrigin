@@ -2,9 +2,9 @@
 -- Never import it into a database that holds data you want to keep.
 -- To add only the notifications table to an existing database, run database/add_notifications.sql instead.
 
---This is for live hosting on InfinityFree
+-- This is for live hosting on InfinityFree
 -- i will keep this until the other parts are completed
---notes
+-- notes
 -- Create the database in the control panel first, open it in phpMyAdmin, then use Import.
 
 
