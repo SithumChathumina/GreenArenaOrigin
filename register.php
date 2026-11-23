@@ -15,7 +15,7 @@ $pageTitle = 'Create a student account';
 $activePage = 'login';
 $errors = [];
 // students can only register with this email domain
-$studentDomain = '@nsbm.ac.lk';
+$studentDomain = '@students.nsbm.ac.lk';
 $values = ['student_id' => '', 'full_name' => '', 'email' => ''];
 
 // this part runs when a form on the page was submitted
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = 'Enter a valid email address.';
     } elseif (strtolower(substr($values['email'], -strlen($studentDomain))) !== $studentDomain) {
         // students must register with their university email
-        $errors[] = 'Please use your NSBM email address (ending with ' . $studentDomain . ').';
+        $errors[] = 'Please use your NSBM student email address (ending with ' . $studentDomain . ').';
     }
     if (strlen($password) < 8 || !preg_match('/[A-Za-z]/', $password) || !preg_match('/[0-9]/', $password)) {
         $errors[] = 'Password must be at least 8 characters and include a letter and a number.';
@@ -102,8 +102,8 @@ include __DIR__ . '/includes/header.php';
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email" value="<?= e($values['email']) ?>" autocomplete="email" pattern=".+@nsbm\.ac\.lk" title="Use your NSBM email (ending with @nsbm.ac.lk)" placeholder="name@nsbm.ac.lk" required>
-                        <div class="invalid-feedback">Use your NSBM email (ending with @nsbm.ac.lk).</div>
+                        <input type="email" class="form-control" id="email" name="email" value="<?= e($values['email']) ?>" autocomplete="email" pattern=".+@students\.nsbm\.ac\.lk" title="Use your NSBM student email (ending with @students.nsbm.ac.lk)" placeholder="name@students.nsbm.ac.lk" required>
+                        <div class="invalid-feedback">Use your NSBM student email (ending with @students.nsbm.ac.lk).</div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
